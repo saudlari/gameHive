@@ -22,6 +22,22 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* Configuración para dispositivos móviles */
+@media (max-width: 767px) {
+  .modal-content {
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+}
+
+/* Configuración para desktop */
+@media (min-width: 768px) {
+  .modal-content {
+    max-height: none;
+    overflow-y: visible;
+  }
+}
+
 .modal-close {
   position: absolute;
   top: 10px;
@@ -122,3 +138,4 @@
     flex: 1;
   }
 }
+

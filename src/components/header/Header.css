@@ -5,6 +5,10 @@
     padding: 1rem 2rem;
     background-color: #1a1a1a;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 100;
 }
 
 .logo-container {
@@ -30,6 +34,12 @@
     font-size: 1.5rem;
     color: #ffffff;
     margin: 0;
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: flex-end;
+    flex: 1;
 }
 
 .nav-list {
@@ -62,7 +72,12 @@
         padding: 1rem;
     }
 
-    .nav-menu ul {
+    .nav-menu {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .nav-list {
         flex-direction: column;
         align-items: center;
         margin-top: 1rem;

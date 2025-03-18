@@ -39,14 +39,47 @@
       "image": "https://imagenes.20minutos.es/files/image_990_556/uploads/imagenes/2023/02/24/fifa-23.jpeg",
       "description": "El simulador de fútbol más popular del mundo",
       "category": "Deportes"
-    },  {
+    },
+    {
       "id": 6,
-      "title": "FIFA 23",
+      "title": "Red Dead Redemption 2",
       "price": 49.99,
-      "image": "https://imagenes.20minutos.es/files/image_990_556/uploads/imagenes/2023/02/24/fifa-23.jpeg",
-      "description": "El simulador de fútbol más popular del mundo",
-      "category": "Deportes"
+      "image": "https://image.api.playstation.com/vulcan/ap/rnd/202210/2117/HRKZGk9ThTEhIEZhGXL25JYJ.png",
+      "description": "Explora el salvaje oeste con una historia increíble y gráficos impresionantes",
+      "category": "Aventura"
+    },
+    {
+      "id": 7,
+      "title": "Cyberpunk 2077",
+      "price": 39.99,
+      "image": "https://image.api.playstation.com/vulcan/ap/rnd/202010/3019/qJPDIZr7vgtbs32l98Gn7Xn2.jpg",
+      "description": "Un RPG de mundo abierto ambientado en un futuro distópico",
+      "category": "RPG"
+    },
+    {
+      "id": 8,
+      "title": "Hogwarts Legacy",
+      "price": 59.99,
+      "image": "https://image.api.playstation.com/vulcan/ap/rnd/202302/0822/W1RDPwP0fMEHjJYr5Md9m7A1.jpg",
+      "description": "Explora el mundo mágico de Harry Potter en esta aventura RPG",
+      "category": "Aventura"
+    },
+    {
+      "id": 9,
+      "title": "Resident Evil 4 Remake",
+      "price": 59.99,
+      "image": "https://image.api.playstation.com/vulcan/ap/rnd/202302/1018/7SBlwrn5tNYLkMbmUJ6NO3xK.png",
+      "description": "Revive el clásico survival horror con gráficos renovados",
+      "category": "Terror"
+    },
+    {
+      "id": 10,
+      "title": "Minecraft",
+      "price": 29.99,
+      "image": "https://image.api.playstation.com/vulcan/ap/rnd/202008/0511/h9oUM5DEi5g2aFiULw9V1sdU.png",
+      "description": "Construye y explora mundos infinitos en este popular juego de bloques",
+      "category": "Aventura"
     }
   ],
-   "users": []
+  "users": []
 }
