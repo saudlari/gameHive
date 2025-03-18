@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import './Header.css';
-import logoGameHive from '/public/gameHive.jpeg';
+import logoGameHive from '/gameHive.jpeg';
 
 function Header() {
   return (

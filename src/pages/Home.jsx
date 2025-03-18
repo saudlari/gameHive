@@ -1,32 +1,31 @@
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 import GameCard from '../components/GameCards.jsx';
 import '../pages/Home.css';
 
 function Home() {
-  // Datos de ejemplo - esto podría venir de una API en un caso real
-  const games = [
-    {
-      id: 1,
-      title: "The Last of Us Part I",
-      price: 59.99,
-      image: "/games/tlou.jpg", // Asegúrate de tener estas imágenes en tu carpeta public
-      description: "Un emocionante juego de supervivencia post-apocalíptico"
-    },
-    {
-      id: 2,
-      title: "God of War Ragnarök",
-      price: 69.99,
-      image: "/games/gow.jpg",
-      description: "La nueva aventura de Kratos y Atreus en los nueve reinos"
-    },
-    {
-      id: 3,
-      title: "Elden Ring",
-      price: 59.99,
-      image: "/games/elden-ring.jpg",
-      description: "Un vasto mundo abierto lleno de peligros y descubrimientos"
-    },
-    // Puedes agregar más juegos aquí
-  ];
+  const [games, setGames] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchGames = async () => {
+      try {
+        const response = await axios.get('http://localhost:3001/games');
+        setGames(response.data);
+        setLoading(false);
+      } catch (err) {
+        console.error('Error fetching games:', err);
+        setError('Error al cargar los juegos. Por favor, intenta más tarde.');
+        setLoading(false);
+      }
+    };
+
+    fetchGames();
+  }, []);
+
+  if (loading) return <div>Cargando juegos...</div>;
+  if (error) return <div className="error-message">{error}</div>;
 
   return (
     <div className="home">
