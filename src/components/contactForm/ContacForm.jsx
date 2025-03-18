@@ -3,28 +3,47 @@ import PropTypes from 'prop-types';
 import './ContacForm.css';
 
 function ContactForm({ gameId, gameTitle }) {
-  const [contactName, setContactName] = useState('');
-  const [contactEmail, setContactEmail] = useState('');
-  const [contactMessage, setContactMessage] = useState('');
   const [showForm, setShowForm] = useState(false);
   const [messageSent, setMessageSent] = useState(false);
+  
+  const useForm = (initialState = {}) => {
+    const [values, setValues] = useState(initialState);
+    
+    const reset = () => {
+      setValues(initialState);
+    };
+    
+    const handleInputChange = ({ target }) => {
+      setValues({
+        ...values,
+        [target.id]: target.value
+      });
+    };
+    
+    return [values, handleInputChange, reset];
+  };
+  
+  const [formValues, handleInputChange, resetForm] = useForm({
+    name: '',
+    email: '',
+    message: ''
+  });
+  
+  const { name, email, message } = formValues;
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // Aquí iría la lógica para enviar el mensaje al vendedor
     console.log('Mensaje enviado:', { 
-      contactName, 
-      contactEmail, 
-      contactMessage, 
+      name, 
+      email, 
+      message, 
       gameId,
       gameTitle 
     });
     
     setMessageSent(true);
-    // Reiniciar el formulario
-    setContactName('');
-    setContactEmail('');
-    setContactMessage('');
+    resetForm();
   };
 
   const toggleForm = () => {
@@ -48,8 +67,8 @@ function ContactForm({ gameId, gameTitle }) {
             <input
               type="text"
               id="name"
-              value={contactName}
-              onChange={(e) => setContactName(e.target.value)}
+              value={name}
+              onChange={handleInputChange}
               required
             />
           </div>
@@ -58,8 +77,8 @@ function ContactForm({ gameId, gameTitle }) {
             <input
               type="email"
               id="email"
-              value={contactEmail}
-              onChange={(e) => setContactEmail(e.target.value)}
+              value={email}
+              onChange={handleInputChange}
               required
             />
           </div>
@@ -67,8 +86,8 @@ function ContactForm({ gameId, gameTitle }) {
             <label htmlFor="message">Mensaje:</label>
             <textarea
               id="message"
-              value={contactMessage}
-              onChange={(e) => setContactMessage(e.target.value)}
+              value={message}
+              onChange={handleInputChange}
               required
               placeholder={`Estoy interesado en ${gameTitle}...`}
             ></textarea>
