@@ -39,6 +39,13 @@
       "image": "https://imagenes.20minutos.es/files/image_990_556/uploads/imagenes/2023/02/24/fifa-23.jpeg",
       "description": "El simulador de fútbol más popular del mundo",
       "category": "Deportes"
+    },  {
+      "id": 6,
+      "title": "FIFA 23",
+      "price": 49.99,
+      "image": "https://imagenes.20minutos.es/files/image_990_556/uploads/imagenes/2023/02/24/fifa-23.jpeg",
+      "description": "El simulador de fútbol más popular del mundo",
+      "category": "Deportes"
     }
   ],
    "users": []
