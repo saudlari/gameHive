@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import ContactForm from '../contactForm/ContacForm.jsx';
 import './GameModal.css';
 
 function GameModal({ game, onClose }) {
@@ -19,6 +20,8 @@ function GameModal({ game, onClose }) {
             <p className="modal-description">{game.description}</p>
             <p className="modal-category">Categoría: {game.category}</p>
             <p className="modal-price">Precio: ${game.price}</p>
+            
+            <ContactForm gameId={game.id} gameTitle={game.title} />
           </div>
         </div>
         <div className="modal-footer">
