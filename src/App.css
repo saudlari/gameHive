@@ -1,0 +1,33 @@
+#root {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.container {
+  width: 100%;
+  max-width: none;
+  padding: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
