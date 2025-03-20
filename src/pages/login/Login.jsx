@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../AuthContext';
 import './Login.css';
 
 function Login() {
@@ -8,6 +9,7 @@ function Login() {
   const [loading, setLoading] = useState(false);
   
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   // Hook personalizado useForm
   const useForm = (initialState = {}) => {
@@ -47,9 +49,8 @@ function Login() {
         console.log('Iniciando sesión con:', email, password);
         // Aquí iría la llamada a la API
         
-        // Simulamos un login exitoso
-        localStorage.setItem('userId', '1');
-        localStorage.setItem('userName', email);
+        // Usar el contexto para iniciar sesión
+        login('1', email);
         
         navigate('/');
       } else {
@@ -60,9 +61,8 @@ function Login() {
         console.log('Registrando usuario:', name, email, password);
         // Aquí iría la llamada a la API
         
-        // Simulamos un registro exitoso
-        localStorage.setItem('userId', '1');
-        localStorage.setItem('userName', name);
+        // Usar el contexto para iniciar sesión
+        login('1', name);
         
         navigate('/');
       }

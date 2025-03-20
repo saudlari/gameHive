@@ -1,36 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useCart } from '../../CartContext';
+import { useAuth } from '../../AuthContext';
 import './Header.css';
 import logoGameHive from '/gameHive.jpeg';
 import PublishButton from '../buttons/PublishButton.jsx';
 
 const Header = () => {
   const { getTotalItems } = useCart();
+  const { currentUser, logout } = useAuth();
   const itemCount = getTotalItems();
   const navigate = useNavigate();
   
-  // Estado para el usuario actual
-  const [currentUser, setCurrentUser] = useState(null);
-  
-  // Comprobar si hay un usuario autenticado al cargar el componente
-  useEffect(() => {
-    const userId = localStorage.getItem('userId');
-    const userName = localStorage.getItem('userName');
-    
-    if (userId && userName) {
-      setCurrentUser({
-        id: userId,
-        name: userName
-      });
-    }
-  }, []);
-  
-  // Función para cerrar sesión
   const handleLogout = () => {
-    localStorage.removeItem('userId');
-    localStorage.removeItem('userName');
-    setCurrentUser(null);
+    logout();
     navigate('/');
   };
 
