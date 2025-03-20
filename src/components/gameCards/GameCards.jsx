@@ -3,11 +3,18 @@ import './GameCards.css';
 import ButtonFav from '../button-fav/ButtonFav';
 import { useCart } from '../../CartContext';
 
-function GameCard({ title, price, image, description, onClick, isNew }) {
+function GameCard({ id, title, price, image, description, onClick, isNew, category }) {
   const { addToCart } = useCart();
   
   const handleAddToCart = () => {
-    addToCart({ title, price, image, description });
+    addToCart({ 
+      id, 
+      title, 
+      price, 
+      image, 
+      description,
+      category
+    });
     // Opcional: mostrar alguna notificación de éxito
   };
 
@@ -40,12 +47,14 @@ function GameCard({ title, price, image, description, onClick, isNew }) {
 }
 
 GameCard.propTypes = {
+  id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   image: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
-  isNew: PropTypes.bool
+  isNew: PropTypes.bool,
+  category: PropTypes.string
 };
 
 GameCard.defaultProps = {

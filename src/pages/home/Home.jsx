@@ -103,11 +103,14 @@ function Home() {
               {filteredGames.map(game => (
                 <GameCard
                   key={game.id}
+                  id={game.id}
                   title={game.title}
                   price={game.price}
                   image={game.image}
                   description={game.description}
+                  category={game.category}
                   onClick={() => handleGameClick(game)}
+                  isNew={game.is_new}
                 />
               ))}
             </div>
@@ -117,7 +120,11 @@ function Home() {
       
       {selectedGame && (
         <GameModal 
-          game={selectedGame} 
+          game={{
+            ...selectedGame,
+            contactEmail: selectedGame.contact_email,
+            contactPhone: selectedGame.contact_phone
+          }} 
           onClose={closeModal} 
         />
       )}

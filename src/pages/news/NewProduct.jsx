@@ -23,14 +23,15 @@ function NewProduct() {
         sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
         
         const newGames = allGames.filter(game => 
-          game.isNew || (game.date && new Date(game.date) > sevenDaysAgo)
+          // Adaptado para la nueva estructura de datos
+          game.is_new || (game.created_at && new Date(game.created_at) > sevenDaysAgo)
         );
         
-        // Ordenar por fecha de publicación (más recientes primero)
+        // Ordenar por fecha de creación (más recientes primero)
         newGames.sort((a, b) => {
-          if (!a.date) return 1;
-          if (!b.date) return -1;
-          return new Date(b.date) - new Date(a.date);
+          if (!a.created_at) return 1;
+          if (!b.created_at) return -1;
+          return new Date(b.created_at) - new Date(a.created_at);
         });
         
         // Extraer categorías únicas
@@ -118,10 +119,12 @@ function NewProduct() {
               {filteredGames.map(game => (
                 <GameCard
                   key={game.id}
+                  id={game.id}
                   title={game.title}
                   price={game.price}
                   image={game.image}
                   description={game.description}
+                  category={game.category}
                   onClick={() => handleGameClick(game)}
                   isNew={true}
                 />
@@ -133,7 +136,11 @@ function NewProduct() {
       
       {selectedGame && (
         <GameModal 
-          game={selectedGame} 
+          game={{
+            ...selectedGame,
+            contactEmail: selectedGame.contact_email,
+            contactPhone: selectedGame.contact_phone
+          }} 
           onClose={closeModal} 
         />
       )}

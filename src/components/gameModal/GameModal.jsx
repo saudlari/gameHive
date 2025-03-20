@@ -5,6 +5,12 @@ import './GameModal.css';
 function GameModal({ game, onClose }) {
   if (!game) return null;
 
+  const displayGame = {
+    ...game,
+    contactEmail: game.contact_email || game.contactEmail,
+    contactPhone: game.contact_phone || game.contactPhone
+  };
+
   return (
     <div className="modal-backdrop" onClick={onClose}>
       <div className="modal-content" onClick={e => e.stopPropagation()}>
@@ -22,6 +28,11 @@ function GameModal({ game, onClose }) {
             <p className="modal-price">Precio: ${game.price}</p>
             
             <ContactForm gameId={game.id} gameTitle={game.title} />
+          </div>
+          <div className="contact-info">
+            <h4>Información de contacto:</h4>
+            <p>Email: {displayGame.contactEmail}</p>
+            {displayGame.contactPhone && <p>Teléfono: {displayGame.contactPhone}</p>}
           </div>
         </div>
         <div className="modal-footer">

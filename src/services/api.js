@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:3001';
+const API_URL = 'http://localhost:8000';
 
 export const gameService = {
   getAllGames: async () => {
@@ -15,7 +15,20 @@ export const gameService = {
   
   // Método para agregar un nuevo juego
   addGame: async (gameData) => {
-    const response = await axios.post(`${API_URL}/games`, gameData);
+    // Convertir los nombres de campos de camelCase a snake_case para el backend
+    const formattedData = {
+      title: gameData.title,
+      description: gameData.description,
+      price: parseFloat(gameData.price),
+      category: gameData.category,
+      image: gameData.image,
+      contact_email: gameData.contactEmail,
+      contact_phone: gameData.contactPhone || '',
+      is_new: gameData.isNew,
+      user_id: localStorage.getItem('userId') || '1' // ID de usuario por defecto
+    };
+    
+    const response = await axios.post(`${API_URL}/games`, formattedData);
     return response.data;
   },
   
