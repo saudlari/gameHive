@@ -3,7 +3,11 @@ import { useCart } from '../../CartContext';
 import './Carrito.css';   
 
 const Carrito = () => {
-  const { cart } = useCart();
+  const { cart, removeFromCart } = useCart();
+
+  const handleRemove = (index) => {
+    removeFromCart(index);
+  };
 
   return (
     <div className="carrito-container">
@@ -22,6 +26,12 @@ const Carrito = () => {
               <div className="carrito-item-details">
                 <h2 className="carrito-item-title">{item.title}</h2>
                 <p className="carrito-item-price">${item.price}</p>
+                <button 
+                  className="carrito-item-remove" 
+                  onClick={() => handleRemove(index)}
+                >
+                  Eliminar
+                </button>
               </div>
             </div>
           ))}

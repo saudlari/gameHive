@@ -54,3 +54,19 @@
     margin-top: 0.625rem; 
   }
   
+
+  .carrito-item-remove {
+    background-color: #e44d26;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 0.625rem;
+  }
+  
+  .carrito-item-remove:hover {
+    background-color: #c13a1b;
+  }
+  
