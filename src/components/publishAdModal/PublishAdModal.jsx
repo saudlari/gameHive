@@ -75,7 +75,7 @@ function PublishAdModal({ onClose }) {
     setIsSubmitting(true);
     
     try {
-      // Preparar los datos para enviar
+     
       const gameData = {
         title: formData.title,
         description: formData.description,
@@ -89,16 +89,16 @@ function PublishAdModal({ onClose }) {
         user_id: currentUser.id
       };
       
-      // Enviar datos al servidor usando el servicio API
+
       await gameService.addGame(gameData);
       
-      // Mostrar mensaje de éxito
+ 
       alert('¡Anuncio publicado con éxito! Aparecerá en la sección de novedades.');
       
-      // Cerrar modal
+   
       onClose();
       
-      // Recargar la página para mostrar el nuevo anuncio
+     
       window.location.href = '/novedades';
     } catch (error) {
       console.error('Error al publicar anuncio:', error);

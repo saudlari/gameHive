@@ -10,7 +10,7 @@ import Novedades from './pages/news/NewProduct';
 import ShoppingCart from './pages/shopping/ShoppingCart';
 import Login from './pages/login/Login';
 
-//const Favs = () => <div>Página de Juegos</div>;
+
 
 function App() {
   return (

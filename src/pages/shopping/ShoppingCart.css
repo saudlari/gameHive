@@ -150,8 +150,8 @@
   .carrito-summary {
     background: linear-gradient(135deg, #3498db, #2980b9);
     border-radius: 1rem;
-    padding: 1rem; /* Reducido el padding */
-    margin-bottom: 1.5rem; /* Reducido el margen inferior */
+    padding: 1rem; 
+    margin-bottom: 1.5rem; 
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
     text-align: center;
     color: white;
@@ -165,7 +165,7 @@
   }
   
   .carrito-total-number {
-    font-size: 2.5rem; /* Reducido el tamaño de fuente */
+    font-size: 2.5rem;
     font-weight: bold;
     margin-bottom: 0.5rem;
     animation: pulse 2s infinite ease-in-out;
@@ -178,17 +178,17 @@
   }
   
   .carrito-total-text {
-    font-size: 1rem; /* Reducido el tamaño de fuente */
+    font-size: 1rem; 
     opacity: 0.9;
   }
   
   .carrito-capacity {
-    margin-top: 0.5rem; /* Reducido el margen superior */
-    font-size: 0.8rem; /* Reducido el tamaño de fuente */
+    margin-top: 0.5rem; 
+    font-size: 0.8rem; 
     opacity: 0.8;
   }
   
-  /* Estilos para la sección de checkout */
+  
   .carrito-checkout {
     background-color: #f8f9fa;
     border-radius: 1rem;
@@ -247,7 +247,7 @@
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   }
   
-  /* Añadir un icono de compra antes del texto */
+ 
   .carrito-checkout-btn::before {
     content: "🛒";
     font-size: 1.2rem;

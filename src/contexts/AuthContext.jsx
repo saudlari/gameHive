@@ -5,7 +5,7 @@ const AuthContext = createContext();
 export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState(null);
   
-  // Cargar usuario del localStorage al iniciar
+ 
   useEffect(() => {
     const userId = localStorage.getItem('userId');
     const userName = localStorage.getItem('userName');
@@ -18,7 +18,7 @@ export function AuthProvider({ children }) {
     }
   }, []);
   
-  // Función para iniciar sesión
+
   const login = (userId, userName) => {
     localStorage.setItem('userId', userId);
     localStorage.setItem('userName', userName);
@@ -28,7 +28,7 @@ export function AuthProvider({ children }) {
     });
   };
   
-  // Función para cerrar sesión
+
   const logout = () => {
     localStorage.removeItem('userId');
     localStorage.removeItem('userName');

@@ -11,7 +11,7 @@ function Login() {
   const navigate = useNavigate();
   const { login } = useAuth();
 
-  // Hook personalizado useForm
+
   const useForm = (initialState = {}) => {
     const [values, setValues] = useState(initialState);
     
@@ -29,7 +29,7 @@ function Login() {
     return [values, handleInputChange, reset];
   };
   
-  // Inicializar el formulario con los campos necesarios
+
   const [formValues, handleInputChange, resetForm] = useForm({
     name: '',
     email: '',
@@ -45,23 +45,20 @@ function Login() {
 
     try {
       if (isLogin) {
-        // Proceso de login (simulado por ahora)
+
         console.log('Iniciando sesión con:', email, password);
-        // Aquí iría la llamada a la API
+     
         
-        // Usar el contexto para iniciar sesión
         login('1', email);
         
         navigate('/');
       } else {
-        // Proceso de registro (simulado por ahora)
+  
         if (!name) {
           throw new Error('El nombre es obligatorio');
         }
         console.log('Registrando usuario:', name, email, password);
-        // Aquí iría la llamada a la API
         
-        // Usar el contexto para iniciar sesión
         login('1', name);
         
         navigate('/');

@@ -18,7 +18,7 @@ function NewProduct() {
       try {
         const allGames = await gameService.getAllGames();
         
-        // Filtrar juegos marcados como novedades o publicados en los últimos 7 días
+ 
         const sevenDaysAgo = new Date();
         sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
         
@@ -27,14 +27,13 @@ function NewProduct() {
           game.is_new || (game.created_at && new Date(game.created_at) > sevenDaysAgo)
         );
         
-        // Ordenar por fecha de creación (más recientes primero)
+
         newGames.sort((a, b) => {
           if (!a.created_at) return 1;
           if (!b.created_at) return -1;
           return new Date(b.created_at) - new Date(a.created_at);
         });
         
-        // Extraer categorías únicas
         const uniqueCategories = [...new Set(newGames.map(game => 
           game.category ? game.category : 'Otros'
         ))];
@@ -64,27 +63,26 @@ function NewProduct() {
   const handleFilterChange = (filters) => {
     let result = [...games];
     
-    // Filtrar por término de búsqueda (nombre)
+   
     if (filters.searchTerm) {
       const searchTerm = filters.searchTerm.toLowerCase();
       result = result.filter(game => 
         game.title.toLowerCase().includes(searchTerm)
       );
     }
-    
-    // Filtrar por precio mínimo
+   
     if (filters.minPrice) {
       const minPrice = parseFloat(filters.minPrice);
       result = result.filter(game => game.price >= minPrice);
     }
     
-    // Filtrar por precio máximo
+   
     if (filters.maxPrice) {
       const maxPrice = parseFloat(filters.maxPrice);
       result = result.filter(game => game.price <= maxPrice);
     }
     
-    // Filtrar por categoría
+    
     if (filters.category) {
       result = result.filter(game => 
         game.category && game.category.toLowerCase() === filters.category.toLowerCase()

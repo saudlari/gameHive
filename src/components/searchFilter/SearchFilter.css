@@ -146,7 +146,7 @@
   color: #333;
 }
 
-/* Estilos para el contenedor flexible en las páginas */
+
 .page-content {
   display: flex;
   gap: 2rem;
