@@ -1,72 +1,84 @@
 .carrito-container {
-    max-width: 50rem; 
-    margin: 0 auto;
-    padding: 1.25rem; 
-    font-family: Arial, sans-serif;
-  }
-  
-  .carrito-title {
-    text-align: center;
-    color: #333;
-    margin-bottom: 1.875rem; 
-  }
-  
-  .carrito-empty {
-    text-align: center;
-    font-size: 1.125rem; 
-    color: #666;
-  }
-  
-  .carrito-items {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.25rem; 
-    justify-content: center;
-  }
-  
-  .carrito-item {
-    border: 1px solid #ddd;
-    border-radius: 0.5rem; 
-    overflow: hidden;
-    width: 15.625rem; 
-  }
-  
-  .carrito-item-image {
-    width: 100%;
-    height: 12.5rem; 
-    object-fit: cover;
-  }
-  
-  .carrito-item-details {
-    padding: 0.9375rem; 
-  }
-  
-  .carrito-item-title {
-    margin: 0;
-    font-size: 1.125rem; 
-    color: #333;
-  }
-  
-  .carrito-item-price {
-    font-size: 1rem; 
-    color: #e44d26;
-    font-weight: bold;
-    margin-top: 0.625rem; 
-  }
-  
+  max-width: 70rem; /* Más espacio para las cartas */
+  margin: 0 auto;
+  padding: 2rem; /* Más espacio alrededor */
+  font-family: 'Roboto', Arial, sans-serif;
+}
 
-  .carrito-item-remove {
-    background-color: #e44d26;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 0.25rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 0.625rem;
-  }
+.carrito-title {
+  text-align: center;
+  color: #444;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.carrito-empty {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #888;
+}
+
+.carrito-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem; /* Más espacio entre cartas */
+  justify-content: center;
+}
+
+.carrito-item {
+  background: linear-gradient(145deg, #ffffff, #f0f0f0); /* Fondo con gradiente sutil */
+  border-radius: 1rem; /* Bordes redondeados */
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  overflow: hidden;
+  width: clamp(20rem, 25%, 22rem); /* Tamaño flexible para diferentes pantallas */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.carrito-item:hover {
+  transform: translateY(-10px); /* Efecto de elevación al pasar el mouse */
+  box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.2); /* Sombra más intensa al hacer hover */
+}
+
+.carrito-item-image {
+  width: 100%;
+  height: auto;
+}
+
+.carrito-item-details {
+  padding: 1.5rem; /* Espaciado interno mejorado */
+}
+
+.carrito-item-title {
+  font-size: 1.5rem; /* Título más grande */
+  color: #222;
+  margin-bottom: .5rem;
+}
+
+.carrito-item-price {
+  font-size: 1.25rem; /* Precio más destacado */
+  color: #28a745; /* Verde para resaltar el precio */
+}
+
+.carrito-item-remove {
+  display: inline-block;
+  background-color: #ff4d4d; /* Rojo vibrante */
+  color: white;
+  border: none;
+  padding: .75rem;
+  border-radius: .5rem;
+  cursor: pointer;
+  font-size: .9rem;
+  font-weight: bold;
   
-  .carrito-item-remove:hover {
-    background-color: #c13a1b;
-  }
-  
+   transition:
+    background-color .3s ease,
+    transform .2s ease-in-out;
+
+margin-top:.8em
+}
+
+.carrito-item-remove:hover {
+   background-color:#ff2121 transform scale(1.05)}
+
+
