@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import './GameCards.css';
 import ButtonFav from '../button-fav/ButtonFav';
-import { useCart } from '../../CartContext';
+import { useCart } from '../../contexts/CartContext';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 

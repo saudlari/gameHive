@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useCart } from '../../CartContext';
-import { useAuth } from '../../AuthContext';
+import { useCart } from '../../contexts/CartContext.jsx';
+import { useAuth } from '../../contexts/AuthContext.jsx';
 import './Header.css';
 import logoGameHive from '/gameHive.jpeg';
 import PublishButton from '../buttons/PublishButton.jsx';
@@ -29,7 +29,6 @@ const Header = () => {
         <ul className="nav-list">
           <li className="nav-item"><Link to="/" className="nav-link">Inicio</Link></li>
           <li className="nav-item"><Link to="/juegos" className="nav-link">Mis Juegos</Link></li>
-          <li className="nav-item"><Link to="/ofertas" className="nav-link">Ofertas</Link></li>
           <li className="nav-item"><Link to="/novedades" className="nav-link">Novedades</Link></li>
           <li className="nav-item">
             <Link to="/cart" className="cart-icon">
