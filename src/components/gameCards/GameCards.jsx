@@ -2,9 +2,13 @@ import PropTypes from 'prop-types';
 import './GameCards.css';
 import ButtonFav from '../button-fav/ButtonFav';
 import { useCart } from '../../CartContext';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function GameCard({ id, title, price, image, description, onClick, isNew, category }) {
   const { addToCart } = useCart();
+  const [isAdded, setIsAdded] = useState(false);
+  const navigate = useNavigate();
   
   const handleAddToCart = () => {
     addToCart({ 
@@ -15,7 +19,27 @@ function GameCard({ id, title, price, image, description, onClick, isNew, catego
       description,
       category
     });
-    // Opcional: mostrar alguna notificación de éxito
+    
+    // Añadir efecto visual de confirmación
+    setIsAdded(true);
+    setTimeout(() => {
+      setIsAdded(false);
+    }, 1500); // Vuelve al estado normal después de 1.5 segundos
+  };
+
+  const handleBuyNow = () => {
+    // Primero añadimos al carrito
+    addToCart({ 
+      id, 
+      title, 
+      price, 
+      image, 
+      description,
+      category
+    });
+    
+    // Luego redirigimos al carrito
+    navigate('/cart');
   };
 
   return (
@@ -31,16 +55,27 @@ function GameCard({ id, title, price, image, description, onClick, isNew, catego
         <ButtonFav>
           
                    
-           </ButtonFav>
-        <button 
-          className="add-to-cart-btn" 
-          onClick={(e) => {
-            e.stopPropagation();
-            handleAddToCart();
-          }}
-        >
-          Añadir al carrito
-        </button>
+        </ButtonFav>
+        <div className="card-buttons">
+          <button 
+            className={`add-to-cart-btn ${isAdded ? 'added' : ''}`}
+            onClick={(e) => {
+              e.stopPropagation();
+              handleAddToCart();
+            }}
+          >
+            {isAdded ? 'Añadido' : 'Añadir al carrito'}
+          </button>
+          <button 
+            className="buy-now-btn"
+            onClick={(e) => {
+              e.stopPropagation();
+              handleBuyNow();
+            }}
+          >
+            Comprar ahora
+          </button>
+        </div>
       </div>
     </div>
   );
