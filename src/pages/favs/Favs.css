@@ -34,7 +34,19 @@
   text-align: center;  
 }
  
-  
+.remove-favorite-button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.remove-favorite-button:hover {
+  background-color: darkred;
+}
   
   .games-grid {
     display: grid;

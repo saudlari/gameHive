@@ -2,8 +2,7 @@ import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import './ButtonFav.css';
 
-
-function ButtonFav({ game, onAddToFavorites, isFavorite }) {
+function ButtonFav({ game, isFavorite, onAddToFavorites, onRemoveFromFavorites }) {
   const [isFavoriteState, setIsFavoriteState] = useState(isFavorite);
 
   useEffect(() => {
@@ -11,18 +10,25 @@ function ButtonFav({ game, onAddToFavorites, isFavorite }) {
   }, [isFavorite]);
 
   const toggleFavorite = () => {
+    if (isFavoriteState) {
+      // If the game is already a favorite, remove it
+      onRemoveFromFavorites(game);
+    } else {
+      // If the game is not a favorite, add it
+      onAddToFavorites(game);
+    }
+
+    // Toggle the local state to change the color of the button
     setIsFavoriteState(prevState => !prevState);
-    onAddToFavorites(game);
   };
 
   return (
     <button
-      className={`fav-button ${isFavorite ? 'active' : ''}`}
+      className={`fav-button ${isFavoriteState ? 'active' : ''}`}
       onClick={toggleFavorite}
-      aria-label={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
+      aria-label={isFavoriteState ? 'Remove from favorites' : 'Add to favorites'}
       style={{
-        color: isFavoriteState ? 'gold' : 'grey'
-       
+        color: isFavoriteState ? 'gold' : 'grey',
       }}
     >
       <span className="star">&#9733;</span>
@@ -32,7 +38,9 @@ function ButtonFav({ game, onAddToFavorites, isFavorite }) {
 
 ButtonFav.propTypes = {
   game: PropTypes.object.isRequired,
-  onAddToFavorites: PropTypes.func.isRequired
+  isFavorite: PropTypes.bool.isRequired,
+  onAddToFavorites: PropTypes.func.isRequired,
+  onRemoveFromFavorites: PropTypes.func.isRequired,
 };
 
 export default ButtonFav;
