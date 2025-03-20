@@ -1,13 +1,25 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import ContactForm from '../contactForm/ContacForm.jsx';
 import './GameModal.css';
+import { useCart } from "../../CartContext.jsx";
+import { useNavigate } from 'react-router-dom';
 
 function GameModal({ game, onClose }) {
+  const { addToCart } = useCart();
+  const navigate = useNavigate();
+
   if (!game) return null;
+
+  const handleBuy = () => {
+    addToCart(game);
+    onClose();
+    navigate('/carrito'); // Redirige a la página del carrito
+  };
 
   return (
     <div className="modal-backdrop" onClick={onClose}>
-      <div className="modal-content" onClick={e => e.stopPropagation()}>
+      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <button className="modal-close" onClick={onClose}>×</button>
         <div className="modal-header">
           <h2>{game.title}</h2>
@@ -25,7 +37,7 @@ function GameModal({ game, onClose }) {
           </div>
         </div>
         <div className="modal-footer">
-          <button className="buy-button">Comprar</button>
+          <button className="buy-button" onClick={handleBuy}>Comprar</button>
         </div>
       </div>
     </div>
