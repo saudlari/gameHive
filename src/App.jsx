@@ -7,7 +7,7 @@ import Home from './pages/home/Home';
 import Favs from './pages/favs/Favs';
 import Novedades from './pages/news/NewProduct';
 import ShoppingCart from './pages/shopping/ShoppingCart';
-//port Login from './pages/login/Login';
+import Login from './pages/login/Login';
 
 //const Favs = () => <div>Página de Juegos</div>;
 const Ofertas = () => <div>Página de Ofertas</div>;
@@ -26,6 +26,7 @@ function App() {
             <Route path="/novedades" element={<Novedades />} />
             <Route path="/carrito" element={<Carrito />} />
             <Route path="/cart" element={<ShoppingCart />} />
+            <Route path="/login" element={<Login />} />
           </Routes>
         </main>
         <Footer />
