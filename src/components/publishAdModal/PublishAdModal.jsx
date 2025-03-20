@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
+import { gameService } from '../../services/api';
 import './PublishAdModal.css';
 
 function PublishAdModal({ onClose }) {
@@ -15,6 +16,7 @@ function PublishAdModal({ onClose }) {
 
   const [previewImage, setPreviewImage] = useState(null);
   const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -52,7 +54,7 @@ function PublishAdModal({ onClose }) {
     return newErrors;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     
     const formErrors = validateForm();
@@ -61,12 +63,43 @@ function PublishAdModal({ onClose }) {
       return;
     }
     
-    // Aquí iría la lógica para enviar los datos al backend
-    console.log('Datos del anuncio:', formData);
+    setIsSubmitting(true);
     
-    // Simulación de envío exitoso
-    alert('¡Anuncio publicado con éxito!');
-    onClose();
+    try {
+      // Preparar los datos para enviar
+      const gameData = {
+        title: formData.title,
+        description: formData.description,
+        price: parseFloat(formData.price),
+        category: formData.category,
+        // Usar la URL de la imagen previsualizada como imagen temporal
+        // En un entorno real, se subiría la imagen a un servidor
+        image: previewImage || 'https://via.placeholder.com/300x200?text=Sin+Imagen',
+        contactEmail: formData.contactEmail,
+        contactPhone: formData.contactPhone || '',
+        isNew: true, // Marcar como novedad
+        date: new Date().toISOString() // Fecha de publicación
+      };
+      
+      // Enviar datos al servidor usando el servicio API
+      await gameService.addGame(gameData);
+      
+      // Mostrar mensaje de éxito
+      alert('¡Anuncio publicado con éxito! Aparecerá en la sección de novedades.');
+      
+      // Cerrar modal
+      onClose();
+      
+      // Recargar la página para mostrar el nuevo anuncio
+      window.location.href = '/novedades';
+    } catch (error) {
+      console.error('Error al publicar anuncio:', error);
+      setErrors({
+        ...errors,
+        submit: 'Error al publicar el anuncio. Por favor, intenta de nuevo.'
+      });
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -191,7 +224,7 @@ function PublishAdModal({ onClose }) {
             
             <div className="form-actions">
               <button type="button" className="cancel-button" onClick={onClose}>Cancelar</button>
-              <button type="submit" className="submit-button">Publicar</button>
+              <button type="submit" className="submit-button" disabled={isSubmitting}>Publicar</button>
             </div>
           </form>
         </div>

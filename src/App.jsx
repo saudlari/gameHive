@@ -2,12 +2,11 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
-import Home from './pages/Home';
+import Home from './pages/home/Home';
+import Novedades from './pages/news/NewProduct';
 
-const Inicio = () => <div>Página de Inicio</div>;
 const Juegos = () => <div>Página de Juegos</div>;
 const Ofertas = () => <div>Página de Ofertas</div>;
-const Novedades = () => <div>Página de Novedades</div>;
 const Carrito = () => <div>Página del Carrito</div>;
 
 function App() {
