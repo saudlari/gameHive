@@ -1,8 +1,16 @@
 import PropTypes from 'prop-types';
 import './GameCards.css';
 import ButtonFav from '../button-fav/ButtonFav';
+import { useCart } from '../../CartContext';
 
 function GameCard({ title, price, image, description, onClick, isNew }) {
+  const { addToCart } = useCart();
+  
+  const handleAddToCart = () => {
+    addToCart({ title, price, image, description });
+    // Opcional: mostrar alguna notificación de éxito
+  };
+
   return (
     <div className="game-card" onClick={onClick} style={{ cursor: 'pointer' }}>
       <div className="game-card-image-container">
@@ -17,6 +25,15 @@ function GameCard({ title, price, image, description, onClick, isNew }) {
           
                    
            </ButtonFav>
+        <button 
+          className="add-to-cart-btn" 
+          onClick={(e) => {
+            e.stopPropagation();
+            handleAddToCart();
+          }}
+        >
+          Añadir al carrito
+        </button>
       </div>
     </div>
   );
