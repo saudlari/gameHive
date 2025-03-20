@@ -1,13 +1,20 @@
 import { useState } from 'react';
-import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../contexts/AuthContext';
 import './PublishButton.css';
 import PublishAdModal from '../publishAdModal/PublishAdModal';
 
 function PublishButton() {
   const [showPublishModal, setShowPublishModal] = useState(false);
+  const { currentUser } = useAuth();
+  const navigate = useNavigate();
 
   const openPublishModal = () => {
-    setShowPublishModal(true);
+    if (currentUser) {
+      setShowPublishModal(true);
+    } else {
+      navigate('/login');
+    }
   };
 
   const closePublishModal = () => {

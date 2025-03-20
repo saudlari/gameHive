@@ -33,7 +33,7 @@ function Home() {
         setGames(response);
         setFilteredGames(response);
         
-      
+
         const uniqueCategories = [...new Set(response.map(game => 
           game.category ? game.category : 'Otros'
         ))];
@@ -61,7 +61,7 @@ function Home() {
   const handleFilterChange = (filters) => {
     let result = [...games];
     
-   
+  
     if (filters.searchTerm) {
       const searchTerm = filters.searchTerm.toLowerCase();
       result = result.filter(game => 
@@ -69,19 +69,19 @@ function Home() {
       );
     }
     
-    
+ 
     if (filters.minPrice) {
       const minPrice = parseFloat(filters.minPrice);
       result = result.filter(game => game.price >= minPrice);
     }
     
-    
+
     if (filters.maxPrice) {
       const maxPrice = parseFloat(filters.maxPrice);
       result = result.filter(game => game.price <= maxPrice);
     }
     
-  
+
     if (filters.category) {
       result = result.filter(game => 
         game.category && game.category.toLowerCase() === filters.category.toLowerCase()
@@ -117,13 +117,16 @@ function Home() {
                 <GameCard
                  GameCard
                   key={game.id}
+                  id={game.id}
                   title={game.title}
                   price={game.price}
                   image={game.image}
                   description={game.description}
+                  category={game.category}
                   isFavorite={favorites.some(fav => fav.id === game.id)}  
                   onAddToFavorites={handleAddToFavorites}
                                   
+                  isNew={game.is_new}
                 />
               ))}
             </div>
@@ -133,7 +136,11 @@ function Home() {
       
       {selectedGame && (
         <GameModal 
-          game={selectedGame} 
+          game={{
+            ...selectedGame,
+            contactEmail: selectedGame.contact_email,
+            contactPhone: selectedGame.contact_phone
+          }} 
           onClose={closeModal} 
         />
       )}

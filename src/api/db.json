@@ -139,6 +139,18 @@
       "contactPhone": "",
       "isNew": true,
       "date": "2025-03-20T09:23:13.250Z"
+    },
+    {
+      "id": "c281",
+      "title": "Prueba1",
+      "description": "desd",
+      "price": 10,
+      "category": "rpg",
+      "image": "https://via.placeholder.com/300x200?text=Sin+Imagen",
+      "contactEmail": "larissa@riseup.net",
+      "contactPhone": "",
+      "isNew": true,
+      "date": "2025-03-20T15:38:24.467Z"
     }
   ],
   "users": []

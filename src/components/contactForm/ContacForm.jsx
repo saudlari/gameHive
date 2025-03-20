@@ -33,7 +33,6 @@ function ContactForm({ gameId, gameTitle }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Aquí iría la lógica para enviar el mensaje al vendedor
     console.log('Mensaje enviado:', { 
       name, 
       email, 
