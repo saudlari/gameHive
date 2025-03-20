@@ -1,13 +1,40 @@
-.home {
-    padding: 2rem;
+
+  
+  .go-back-button {
+    padding: 10px 20px;
+    background-color: #a2238d;  
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center; 
+    font-weight: bold;
   }
   
-  .home-title {
-    font-size: 2rem;
-    color: #2c3e50;
-    margin-bottom: 2rem;
-    text-align: center;
+  
+  .go-back-button:hover {
+    background-color: #9a45a0; 
   }
+  
+  
+  .go-back-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #7a2157;
+  }
+  
+  section h2 {
+    font-size: 2rem;  
+    text-align: center; 
+    margin: 5px 0;     
+    font-weight: bold;  
+  }
+.go-back{
+  text-align: center;  
+}
+ 
+  
   
   .games-grid {
     display: grid;

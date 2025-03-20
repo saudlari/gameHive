@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import './GameCards.css';
 import ButtonFav from '../button-fav/ButtonFav';
 
-function GameCard({ title, price, image, description, onClick, isNew }) {
+function GameCard({ title, price, image, description, onClick, isNew, isFavorite, onAddToFavorites }) {
   return (
     <div className="game-card" onClick={onClick} style={{ cursor: 'pointer' }}>
       <div className="game-card-image-container">
@@ -13,10 +13,12 @@ function GameCard({ title, price, image, description, onClick, isNew }) {
         <h3 className="game-card-title">{title}</h3>
         <p className="game-card-description">{description.substring(0, 100)}...</p>
         <p className="game-card-price">${price}</p>
-        <ButtonFav>
-          
-                   
-           </ButtonFav>
+        {/* Pass all required props to ButtonFav */}
+        <ButtonFav
+          game={{ title, price, image, description }}
+          isFavorite={isFavorite}
+          onAddToFavorites={onAddToFavorites}
+        />
       </div>
     </div>
   );
@@ -28,11 +30,13 @@ GameCard.propTypes = {
   image: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
-  isNew: PropTypes.bool
+  isNew: PropTypes.bool,
+  isFavorite: PropTypes.bool.isRequired, // Make sure it's required for the favorite state
+  onAddToFavorites: PropTypes.func.isRequired,
 };
 
 GameCard.defaultProps = {
-  isNew: false
+  isNew: false,
 };
 
 export default GameCard;
