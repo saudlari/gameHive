@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import './GameCards.css';
+import ButtonFav from '../button-fav/ButtonFav';
 
 function GameCard({ title, price, image, description, onClick, isNew }) {
   return (
@@ -12,6 +13,10 @@ function GameCard({ title, price, image, description, onClick, isNew }) {
         <h3 className="game-card-title">{title}</h3>
         <p className="game-card-description">{description.substring(0, 100)}...</p>
         <p className="game-card-price">${price}</p>
+        <ButtonFav>
+          
+                   
+           </ButtonFav>
       </div>
     </div>
   );
