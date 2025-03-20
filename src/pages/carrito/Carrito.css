@@ -1,0 +1,56 @@
+.carrito-container {
+    max-width: 50rem; 
+    margin: 0 auto;
+    padding: 1.25rem; 
+    font-family: Arial, sans-serif;
+  }
+  
+  .carrito-title {
+    text-align: center;
+    color: #333;
+    margin-bottom: 1.875rem; 
+  }
+  
+  .carrito-empty {
+    text-align: center;
+    font-size: 1.125rem; 
+    color: #666;
+  }
+  
+  .carrito-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem; 
+    justify-content: center;
+  }
+  
+  .carrito-item {
+    border: 1px solid #ddd;
+    border-radius: 0.5rem; 
+    overflow: hidden;
+    width: 15.625rem; 
+  }
+  
+  .carrito-item-image {
+    width: 100%;
+    height: 12.5rem; 
+    object-fit: cover;
+  }
+  
+  .carrito-item-details {
+    padding: 0.9375rem; 
+  }
+  
+  .carrito-item-title {
+    margin: 0;
+    font-size: 1.125rem; 
+    color: #333;
+  }
+  
+  .carrito-item-price {
+    font-size: 1rem; 
+    color: #e44d26;
+    font-weight: bold;
+    margin-top: 0.625rem; 
+  }
+  

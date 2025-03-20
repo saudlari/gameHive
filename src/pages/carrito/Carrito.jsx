@@ -1,27 +1,31 @@
 import React from 'react';
 import { useCart } from '../../CartContext';
+import './Carrito.css';   
 
 const Carrito = () => {
   const { cart } = useCart();
 
   return (
-    <div style={{ padding: '20px' }}>
-      <h1>Carrito de Compras</h1>
+    <div className="carrito-container">
+      <h1 className="carrito-title">Carrito de Compras</h1>
       {cart.length === 0 ? (
-        <p>Tu carrito está vacío</p>
+        <p className="carrito-empty">Tu carrito está vacío</p>
       ) : (
-        <ul style={{ listStyleType: 'none', padding: 0 }}>
+        <div className="carrito-items">
           {cart.map((item, index) => (
-            <li key={index} style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
+            <div key={index} className="carrito-item">
               <img 
                 src={item.image} 
                 alt={item.title} 
-                style={{ width: '50px', height: '50px', marginRight: '10px' }} 
+                className="carrito-item-image"
               />
-              <span>{item.title} - ${item.price}</span>
-            </li>
+              <div className="carrito-item-details">
+                <h2 className="carrito-item-title">{item.title}</h2>
+                <p className="carrito-item-price">${item.price}</p>
+              </div>
+            </div>
           ))}
-        </ul>
+        </div>
       )}
     </div>
   );
