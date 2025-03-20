@@ -1,5 +1,5 @@
 import React from 'react';
-import { useCart } from '../../CartContext';
+import { useCart } from '../../contexts/CartContext';
 import './ShoppingCart.css';
 
 
@@ -15,15 +15,14 @@ const ShoppingCart = () => {
   };
 
   const handleCheckout = () => {
-    // Aquí puedes implementar la lógica para procesar el pago
-    // Por ahora, solo mostraremos una alerta
+   
     alert('¡Gracias por tu compra! Procesando el pago...');
-    // Aquí podrías redirigir a una página de pago o mostrar un formulario
+   
   };
 
   const totalItems = getTotalItems();
   const totalPrice = getTotalPrice();
-  const maxItems = 20; // Puedes ajustar este número según tus necesidades
+  const maxItems = 20; 
   const progressPercentage = (totalItems / maxItems) * 100;
 
   return (

@@ -2,8 +2,12 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { gameService } from '../../services/api';
 import './PublishAdModal.css';
+import React from 'react';
+import { useAuth } from '../../contexts/AuthContext';
 
 function PublishAdModal({ onClose }) {
+  const { currentUser } = useAuth();
+
   const [formData, setFormData] = useState({
     title: '',
     description: '',
@@ -57,6 +61,11 @@ function PublishAdModal({ onClose }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
+    if (!currentUser) {
+      console.error('Usuario no autenticado');
+      return;
+    }
+
     const formErrors = validateForm();
     if (Object.keys(formErrors).length > 0) {
       setErrors(formErrors);
@@ -66,31 +75,30 @@ function PublishAdModal({ onClose }) {
     setIsSubmitting(true);
     
     try {
-      // Preparar los datos para enviar
+     
       const gameData = {
         title: formData.title,
         description: formData.description,
         price: parseFloat(formData.price),
         category: formData.category,
-        // Usar la URL de la imagen previsualizada como imagen temporal
-        // En un entorno real, se subiría la imagen a un servidor
         image: previewImage || 'https://via.placeholder.com/300x200?text=Sin+Imagen',
         contactEmail: formData.contactEmail,
         contactPhone: formData.contactPhone || '',
-        isNew: true, // Marcar como novedad
-        date: new Date().toISOString() // Fecha de publicación
+        isNew: true,
+        date: new Date().toISOString(),
+        user_id: currentUser.id
       };
       
-      // Enviar datos al servidor usando el servicio API
+
       await gameService.addGame(gameData);
       
-      // Mostrar mensaje de éxito
+ 
       alert('¡Anuncio publicado con éxito! Aparecerá en la sección de novedades.');
       
-      // Cerrar modal
+   
       onClose();
       
-      // Recargar la página para mostrar el nuevo anuncio
+     
       window.location.href = '/novedades';
     } catch (error) {
       console.error('Error al publicar anuncio:', error);

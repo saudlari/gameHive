@@ -20,7 +20,7 @@ function Home() {
         setGames(response);
         setFilteredGames(response);
         
-        // Extraer categorías únicas de los juegos
+
         const uniqueCategories = [...new Set(response.map(game => 
           game.category ? game.category : 'Otros'
         ))];
@@ -48,7 +48,7 @@ function Home() {
   const handleFilterChange = (filters) => {
     let result = [...games];
     
-    // Filtrar por término de búsqueda (nombre)
+  
     if (filters.searchTerm) {
       const searchTerm = filters.searchTerm.toLowerCase();
       result = result.filter(game => 
@@ -56,19 +56,19 @@ function Home() {
       );
     }
     
-    // Filtrar por precio mínimo
+ 
     if (filters.minPrice) {
       const minPrice = parseFloat(filters.minPrice);
       result = result.filter(game => game.price >= minPrice);
     }
     
-    // Filtrar por precio máximo
+
     if (filters.maxPrice) {
       const maxPrice = parseFloat(filters.maxPrice);
       result = result.filter(game => game.price <= maxPrice);
     }
     
-    // Filtrar por categoría
+
     if (filters.category) {
       result = result.filter(game => 
         game.category && game.category.toLowerCase() === filters.category.toLowerCase()
