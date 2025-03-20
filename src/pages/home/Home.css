@@ -71,7 +71,16 @@
   justify-items: center;
 }
 
-@media (max-width: 992px) {
+
+@media screen and (max-width: 680px) {
+  .games-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+}
+
+
+@media screen and (min-width: 681px) and (max-width: 1024px) {
   .page-content {
     flex-direction: column;
   }
@@ -79,17 +88,16 @@
   .filter-sidebar {
     margin-bottom: 2rem;
   }
-}
 
-@media (max-width: 768px) {
-  .games-grid {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1rem;
+  ul.nav-list {
+    align-items: center; 
+    margin-left: 1rem;
+    margin-right: 0.5rem;
   }
 }
 
-@media (max-width: 768px) {
-  .games-grid {
-    grid-template-columns: 1fr;
-  }
+
+
+@media screen and (min-width: 1025px) {
+  
 }
