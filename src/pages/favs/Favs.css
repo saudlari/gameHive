@@ -34,6 +34,9 @@
   text-align: center;  
 }
  
+.fav-button{
+  color: gold;
+}
 .remove-favorite-button {
   background-color: red;
   color: white;

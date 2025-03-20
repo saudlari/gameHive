@@ -16,9 +16,11 @@ function Favs() {
     navigate('/'); 
   };
 
+  
   const handleRemoveFromFavorites = (gameToRemove) => {
-    const updatedFavorites = favoriteGames.filter(game => game.id !== gameToRemove.id);
-    setFavoriteGames(updatedFavorites);
+    const updatedFavorites = favoriteGames.filter(game => game.id !== gameToRemove.id); 
+    setFavoriteGames(updatedFavorites); 
+
     localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
   };
 
@@ -45,10 +47,10 @@ function Favs() {
                   image={game.image} 
                   description={game.description}
                 />
-                {/* Add Remove Button */}
+               
                 <button 
                   className="remove-favorite-button"
-                  onClick={() => handleRemoveFromFavorites(game)}
+                  onClick={() => handleRemoveFromFavorites(game)} 
                 >
                   Eliminar de favoritos
                 </button>

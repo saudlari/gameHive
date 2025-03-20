@@ -11,14 +11,14 @@ function ButtonFav({ game, isFavorite, onAddToFavorites, onRemoveFromFavorites }
 
   const toggleFavorite = () => {
     if (isFavoriteState) {
-      // If the game is already a favorite, remove it
+      
       onRemoveFromFavorites(game);
     } else {
-      // If the game is not a favorite, add it
+     
       onAddToFavorites(game);
     }
 
-    // Toggle the local state to change the color of the button
+    
     setIsFavoriteState(prevState => !prevState);
   };
 
