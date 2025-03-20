@@ -25,6 +25,8 @@
   box-shadow: 0 10px 20px rgba(0,0,0,0.1);
   text-align: center;
   color: white;
+  max-width: 30%;
+  justify-content: center;
 }
 
 .carrito-total-items {
@@ -153,6 +155,7 @@
   box-shadow: 0 10px 20px rgba(0,0,0,0.1);
   text-align: center;
   color: white;
+
 }
 
 .carrito-total-items {
