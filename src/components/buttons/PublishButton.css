@@ -1,12 +1,14 @@
 .publish-button {
-  background-color: #ffd700;
-  color: #1a1a1a;
+  background-color: #eb632a;
+  color: #000;
   border: none;
   border-radius: 4px;
-  padding: 0.5rem 1rem;
+  padding: 0.9rem 1.5rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
+  font-size: 0.9rem;
+  text-transform: uppercase;
 }
 
 .publish-button:hover {
