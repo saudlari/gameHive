@@ -5,7 +5,7 @@ import { useCart } from '../../contexts/CartContext';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function GameCard({ id, title, price, image, description, onClick, isNew, category }) {
+function GameCard({ id, title, price, image, description, onClick, isNew, category, isFavorite, onAddToFavorites }) {
   const { addToCart } = useCart();
   const [isAdded, setIsAdded] = useState(false);
   const navigate = useNavigate();
@@ -52,10 +52,12 @@ function GameCard({ id, title, price, image, description, onClick, isNew, catego
         <h3 className="game-card-title">{title}</h3>
         <p className="game-card-description">{description.substring(0, 100)}...</p>
         <p className="game-card-price">${price}</p>
-        <ButtonFav>
-          
-                   
-        </ButtonFav>
+        {/* Pass all required props to ButtonFav */}
+        <ButtonFav
+          game={{ title, price, image, description }}
+          isFavorite={isFavorite}
+          onAddToFavorites={onAddToFavorites}
+     />
         <div className="card-buttons">
           <button 
             className={`add-to-cart-btn ${isAdded ? 'added' : ''}`}
@@ -89,11 +91,13 @@ GameCard.propTypes = {
   description: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
   isNew: PropTypes.bool,
-  category: PropTypes.string
+  category: PropTypes.string,
+  isFavorite: PropTypes.bool.isRequired, // Make sure it's required for the favorite state
+  onAddToFavorites: PropTypes.func.isRequired,
 };
 
 GameCard.defaultProps = {
-  isNew: false
+  isNew: false,
 };
 
 export default GameCard;

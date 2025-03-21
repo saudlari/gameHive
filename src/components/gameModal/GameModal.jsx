@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import ContactForm from '../contactForm/ContacForm.jsx';
 import './GameModal.css';
+import ButtonFav from '../button-fav/ButtonFav.jsx';
 
 function GameModal({ game, onClose }) {
   if (!game) return null;

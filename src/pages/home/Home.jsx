@@ -13,6 +13,19 @@ function Home() {
   const [selectedGame, setSelectedGame] = useState(null);
   const [categories, setCategories] = useState([]);
 
+  const [favorites, setFavorites] = useState([]);
+
+  useEffect(() => {
+    const storedFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    setFavorites(storedFavorites);
+  }, []);
+
+  const handleAddToFavorites = (game) => {
+    const updatedFavorites = [...favorites, game];
+    setFavorites(updatedFavorites);
+    localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+  };
+
   useEffect(() => {
     const fetchGames = async () => {
       try {
@@ -102,6 +115,7 @@ function Home() {
             <div className="games-grid">
               {filteredGames.map(game => (
                 <GameCard
+                 GameCard
                   key={game.id}
                   id={game.id}
                   title={game.title}
@@ -109,7 +123,9 @@ function Home() {
                   image={game.image}
                   description={game.description}
                   category={game.category}
-                  onClick={() => handleGameClick(game)}
+                  isFavorite={favorites.some(fav => fav.id === game.id)}  
+                  onAddToFavorites={handleAddToFavorites}
+                                  
                   isNew={game.is_new}
                 />
               ))}
