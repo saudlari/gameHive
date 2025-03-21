@@ -3,7 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useCart } from '../../contexts/CartContext.jsx';
 import { useAuth } from '../../contexts/AuthContext.jsx';
 import './Header.css';
-import logoGameHive from '/gameHive.jpeg';
+import isologoGameHive from '/isotipo-solo-dibujo.png';
+import logoGameHive from '/logotipo-solo-letra.png';
 import PublishButton from '../buttons/PublishButton.jsx';
 
 const Header = () => {
@@ -21,8 +22,8 @@ const Header = () => {
     <header className="header">
       <div className="logo-container">
         <Link to="/" className="logo-link">
-          <img src={logoGameHive} alt="GameHive" className="logo-image" />
-          <h1 className="site-title">GameHive</h1>
+          <img src={isologoGameHive} alt="GameHive" className="logo-image" />
+          <img src={logoGameHive} alt="GameHive" />
         </Link>
       </div>
       <nav className="nav-menu">
