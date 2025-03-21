@@ -27,7 +27,7 @@ const ShoppingCart = () => {
 
   return (
     <div className="carrito-container">
-      <h1 className="carrito-title">Carrito de Compras</h1>
+      <h1 className="carrito-title tilt-warp">Carrito de Compras</h1>
       <div className="carrito-summary">
         <div className="carrito-total-items">
           <span className="carrito-total-number">{totalItems}</span>

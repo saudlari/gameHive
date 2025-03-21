@@ -26,11 +26,12 @@ function Favs() {
 
   return (
     <section className="favs">
-      <h2>Juegos Favoritos</h2>
-
-      <nav className="go-back">
+           <nav className="go-back">
         <button className="go-back-button" onClick={handleGoBack}>Volver</button>
       </nav>
+      <h2 className="home-title tilt-warp">Juegos Favoritos</h2>
+
+   
 
       <div className="games-container">
         {favoriteGames.length === 0 ? (
@@ -59,6 +60,7 @@ function Favs() {
           </div>
         )}
       </div>
+ 
     </section>
   );
 }

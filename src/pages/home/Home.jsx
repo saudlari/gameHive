@@ -96,7 +96,7 @@ function Home() {
 
   return (
     <div className="home">
-      <h2 className="home-title">Juegos Destacados</h2>
+      <h2 className="home-title tilt-warp">Juegos Destacados</h2>
       
       <div className="page-content">
         <div className="filter-sidebar">
@@ -125,7 +125,7 @@ function Home() {
                   category={game.category}
                   isFavorite={favorites.some(fav => fav.id === game.id)}  
                   onAddToFavorites={handleAddToFavorites}
-                                  
+                  onClick={() => handleGameClick(game)}
                   isNew={game.is_new}
                 />
               ))}

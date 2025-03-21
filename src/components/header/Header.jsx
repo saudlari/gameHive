@@ -27,7 +27,7 @@ const Header = () => {
         </Link>
       </div>
       <nav className="nav-menu">
-        <ul className="nav-list">
+        <ul className="nav-list tilt-warp">
           <li className="nav-item"><Link to="/" className="nav-link">Inicio</Link></li>
           <li className="nav-item"><Link to="/juegos" className="nav-link">Mis Juegos</Link></li>
           <li className="nav-item"><Link to="/novedades" className="nav-link">Novedades</Link></li>

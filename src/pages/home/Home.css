@@ -1,9 +1,5 @@
-.home {
-  padding: 2rem;
-}
-
 .home-title {
-  font-size: 2rem;
+  font-size: 3rem;
   color: #2c3e50;
   margin-bottom: 2rem;
   text-align: center;
@@ -71,6 +67,16 @@
   justify-items: center;
 }
 
+.home-title {
+  font-size: 5rem;
+  margin: 0;
+  height: 300px;
+  background: linear-gradient(90deg, #ee6227, #4c8fae);
+  color: white;
+  text-transform: uppercase;
+  padding-top: 5.8rem;
+  text-align: center;
+}
 
 @media screen and (max-width: 680px) {
   .games-grid {
